@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMBARSAFE - Dashboard Bencana Lampung Barat</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 px-6 flex flex-col md:flex-row justify-between items-center rounded-b-lg">
+        <div class="flex items-center mb-4 md:mb-0">
+            <img src="assets/logo.png" alt="LAMBARSAFE Logo" class="h-12 w-12 mr-3 rounded-full">
+            <h1 class="text-3xl font-bold text-blue-700">LAMBARSAFE</h1>
+        </div>
+        <nav class="flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-6 text-lg">
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out bg-blue-100">Dashboard</a>
+            <a href="pages/riwayat.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Riwayat Bencana</a>
+            <a href="pages/klasifikasi.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Klasifikasi</a>
+            <a href="pages/mitigasi.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Mitigasi</a>
+            <a href="pages/peta.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Peta Interaktif</a>
+            <a href="pages/tentang.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Berita/Edukasi</a>
+            <a href="pages/kontak.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Kontak Darurat</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- Peringatan Dini Section -->
+        <section class="lg:col-span-2 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-red-600 mb-4 flex items-center">
+                <i class="fas fa-bell mr-3"></i>Peringatan Dini BMKG
+            </h2>
+            <div id="bmkg-alerts" class="space-y-4">
+                <!-- Alerts will be loaded here by bmkg-feed.js -->
+                <div class="bg-blue-50 border-l-4 border-blue-400 text-blue-800 p-4 rounded-md" role="alert">
+                    <p class="font-bold">Memuat Peringatan Dini...</p>
+                    <p>Informasi gempa bumi dan cuaca terbaru dari BMKG akan ditampilkan di sini.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ringkasan Bencana Section -->
+        <section class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                <i class="fas fa-chart-bar mr-3"></i>Ringkasan Bencana
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-green-50 p-4 rounded-md shadow-sm">
+                    <p class="text-sm text-gray-600">Total Bencana (2020-2021)</p>
+                    <p id="total-disasters" class="text-3xl font-bold text-green-700">0</p>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded-md shadow-sm">
+                    <p class="text-sm text-gray-600">Bencana Alam</p>
+                    <p id="alam-disasters" class="text-3xl font-bold text-yellow-700">0</p>
+                </div>
+                <div class="bg-red-50 p-4 rounded-md shadow-sm">
+                    <p class="text-sm text-gray-600">Bencana Non-Alam</p>
+                    <p id="non-alam-disasters" class="text-3xl font-bold text-red-700">0</p>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-md shadow-sm">
+                    <p class="text-sm text-gray-600">Bencana Sosial</p>
+                    <p id="sosial-disasters" class="text-3xl font-bold text-purple-700">0</p>
+                </div>
+            </div>
+            <p class="text-sm text-gray-500 mt-4">Data berdasarkan `disasters.csv`</p>
+        </section>
+
+        <!-- Berita/Edukasi Section -->
+        <section class="lg:col-span-3 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                <i class="fas fa-newspaper mr-3"></i>Berita & Edukasi Terbaru
+            </h2>
+            <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Example News Articles - these could be loaded dynamically -->
+                <div class="bg-gray-50 p-4 rounded-md shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Pentingnya Kesiapsiagaan Bencana Gempa</h3>
+                    <p class="text-gray-700 text-sm">Pelajari langkah-langkah penting yang harus diambil sebelum, saat, dan setelah gempa bumi untuk meminimalkan risiko.</p>
+                    <a href="pages/tentang.html#gempa" class="text-blue-600 hover:underline text-sm mt-2 inline-block">Baca Selengkapnya <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-md shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Mitigasi Banjir di Musim Hujan</h3>
+                    <p class="text-gray-700 text-sm">Panduan lengkap untuk masyarakat dalam menghadapi musim hujan dan mencegah dampak banjir.</p>
+                    <a href="pages/tentang.html#banjir" class="text-blue-600 hover:underline text-sm mt-2 inline-block">Baca Selengkapnya <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-md shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Peran Komunitas dalam Penanggulangan Bencana</h3>
+                    <p class="text-gray-700 text-sm">Bagaimana peran aktif komunitas lokal dapat meningkatkan ketahanan terhadap bencana.</p>
+                    <a href="pages/tentang.html#komunitas" class="text-blue-600 hover:underline text-sm mt-2 inline-block">Baca Selengkapnya <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                </div>
+            </div>
+            <div class="text-center mt-6">
+                <a href="pages/tentang.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out">Lihat Semua Berita & Edukasi</a>
+            </div>
+        </section>
+
+        <!-- Form Laporan Masyarakat (Opsional) -->
+        <section class="lg:col-span-3 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                <i class="fas fa-clipboard-list mr-3"></i>Laporkan Kejadian
+            </h2>
+            <p class="text-gray-700 mb-4">Jika Anda ingin melaporkan kejadian bencana atau kondisi darurat, silakan gunakan formulir di bawah ini. Laporan Anda sangat berharga untuk penanganan yang cepat dan tepat.</p>
+            <div class="bg-blue-50 p-4 rounded-md border border-blue-200">
+                <p class="text-blue-800 font-semibold mb-2">Formulir Laporan Masyarakat (Google Form)</p>
+                <p class="text-blue-700 text-sm mb-4">Anda akan diarahkan ke Google Form untuk mengisi laporan.</p>
+                <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out">
+                    Buka Formulir Laporan <i class="fas fa-external-link-alt ml-2"></i>
+                </a>
+                <p class="text-xs text-gray-500 mt-2"><em>(Ganti "YOUR_GOOGLE_FORM_LINK_HERE" dengan link Google Form Anda)</em></p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-6 px-6 mt-8 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 LAMBARSAFE. Dikelola oleh BPBD Lampung Barat.</p>
+            <div class="flex justify-center space-x-4 mt-3">
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript files -->
+    <script src="js/main.js"></script>
+    <script src="js/bmkg-feed.js"></script>
+    <!-- filter.js is primarily for riwayat.html, but main.js might use some data processing from it -->
+</body>
+</html>
