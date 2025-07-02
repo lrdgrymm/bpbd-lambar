@@ -1,0 +1,102 @@
+[
+    {
+        "namaBencana": "Gempa Bumi",
+        "sebelumBencana": [
+            "Kenali struktur bangunan Anda, pastikan tahan gempa.",
+            "Siapkan tas siaga bencana (makanan, air, obat-obatan, senter, radio).",
+            "Pelajari jalur evakuasi di rumah dan tempat kerja.",
+            "Latih 'Drop, Cover, and Hold On'."
+        ],
+        "saatBencana": [
+            "Jika di dalam ruangan: berlindung di bawah meja kokoh, jauhi jendela dan benda berat.",
+            "Jika di luar ruangan: menjauh dari bangunan, pohon, dan tiang listrik.",
+            "Jika di dalam kendaraan: berhenti di tempat terbuka, tetap di dalam mobil sampai guncangan berhenti.",
+            "Jangan gunakan lift."
+        ],
+        "setelahBencana": [
+            "Periksa diri dan orang sekitar dari luka.",
+            "Periksa kerusakan gas, listrik, dan air.",
+            "Kenakan alas kaki untuk melindungi dari pecahan kaca.",
+            "Ikuti instruksi dari petugas berwenang.",
+            "Bersiap untuk gempa susulan."
+        ]
+    },
+    {
+        "namaBencana": "Banjir",
+        "sebelumBencana": [
+            "Bersihkan saluran air dan selokan di sekitar rumah.",
+            "Siapkan tas siaga bencana.",
+            "Pantau informasi cuaca dan peringatan dini dari BMKG.",
+            "Pindahkan barang berharga ke tempat yang lebih tinggi."
+        ],
+        "saatBencana": [
+            "Segera evakuasi ke tempat yang lebih tinggi jika air mulai naik.",
+            "Matikan aliran listrik di rumah.",
+            "Jangan berjalan atau berkendara melalui air banjir.",
+            "Waspada terhadap hewan berbahaya yang terbawa banjir."
+        ],
+        "setelahBencana": [
+            "Bersihkan rumah dari lumpur dan sampah.",
+            "Waspada terhadap bahaya listrik.",
+            "Gunakan air bersih untuk minum dan memasak.",
+            "Periksa kondisi kesehatan, hindari penyakit pasca-banjir."
+        ]
+    },
+    {
+        "namaBencana": "Tanah Longsor",
+        "sebelumBencana": [
+            "Kenali tanda-tanda awal tanah longsor (retakan tanah, pohon miring).",
+            "Hindari membangun di lereng curam atau area rawan longsor.",
+            "Tanam pohon dengan akar kuat di lereng.",
+            "Siapkan jalur evakuasi."
+        ],
+        "saatBencana": [
+            "Jika mendengar suara gemuruh atau melihat pergerakan tanah: segera evakuasi.",
+            "Jika tidak bisa evakuasi: berlindung di bawah benda kokoh.",
+            "Jauhkan diri dari jalur longsor."
+        ],
+        "setelahBencana": [
+            "Jangan kembali ke area longsor sebelum dinyatakan aman.",
+            "Waspada terhadap longsor susulan.",
+            "Laporkan kejadian kepada pihak berwenang."
+        ]
+    },
+    {
+        "namaBencana": "Angin Puting Beliung",
+        "sebelumBencana": [
+            "Perkuat struktur atap rumah.",
+            "Pangkas dahan pohon yang rapuh di sekitar rumah.",
+            "Pantau informasi cuaca."
+        ],
+        "saatBencana": [
+            "Jika di dalam ruangan: berlindung di ruangan paling dalam, jauhi jendela.",
+            "Jika di luar ruangan: cari tempat berlindung yang kokoh, hindari pohon dan tiang listrik.",
+            "Berbaring di parit atau area rendah jika tidak ada tempat berlindung."
+        ],
+        "setelahBencana": [
+            "Periksa kerusakan, waspada terhadap benda jatuh.",
+            "Laporkan kerusakan kepada pihak berwenang.",
+            "Hindari kabel listrik yang putus."
+        ]
+    },
+    {
+        "namaBencana": "Kebakaran",
+        "sebelumBencana": [
+            "Pastikan instalasi listrik aman.",
+            "Jauhkan bahan mudah terbakar dari sumber api.",
+            "Siapkan alat pemadam api ringan (APAR).",
+            "Pelajari jalur evakuasi dan titik kumpul."
+        ],
+        "saatBencana": [
+            "Jika api kecil: padamkan dengan APAR.",
+            "Jika api membesar: segera evakuasi, jangan mencoba memadamkan sendiri.",
+            "Tutup pintu untuk menghambat penyebaran api.",
+            "Hubungi pemadam kebakaran."
+        ],
+        "setelahBencana": [
+            "Jangan masuk kembali ke bangunan yang terbakar sebelum dinyatakan aman.",
+            "Waspada terhadap sisa bara api.",
+            "Laporkan kejadian kepada pihak berwenang."
+        ]
+    }
+]
