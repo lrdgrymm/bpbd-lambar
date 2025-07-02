@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Bencana - LAMBARSAFE</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 px-6 flex flex-col md:flex-row justify-between items-center rounded-b-lg">
+        <div class="flex items-center mb-4 md:mb-0">
+            <img src="../assets/logo.png" alt="LAMBARSAFE Logo" class="h-12 w-12 mr-3 rounded-full">
+            <h1 class="text-3xl font-bold text-blue-700">LAMBARSAFE</h1>
+        </div>
+        <nav class="flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-6 text-lg">
+            <a href="../index.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Dashboard</a>
+            <a href="riwayat.html" class="text-blue-600 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out bg-blue-100">Riwayat Bencana</a>
+            <a href="klasifikasi.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Klasifikasi</a>
+            <a href="mitigasi.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Mitigasi</a>
+            <a href="peta.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Peta Interaktif</a>
+            <a href="tentang.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Berita/Edukasi</a>
+            <a href="kontak.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Kontak Darurat</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                <i class="fas fa-history mr-3"></i>Riwayat Kejadian Bencana
+            </h2>
+            <p class="text-gray-700 mb-4">Berikut adalah data riwayat kejadian bencana di Lampung Barat dari tahun 2020 hingga saat ini. Anda dapat menggunakan filter di bawah untuk mencari data spesifik.</p>
+
+            <!-- Filter Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div>
+                    <label for="year-filter" class="block text-sm font-medium text-gray-700 mb-1">Tahun:</label>
+                    <select id="year-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                        <option value="">Semua Tahun</option>
+                        <!-- Options will be populated by filter.js -->
+                    </select>
+                </div>
+                <div>
+                    <label for="district-filter" class="block text-sm font-medium text-gray-700 mb-1">Kecamatan:</label>
+                    <select id="district-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                        <option value="">Semua Kecamatan</option>
+                        <!-- Options will be populated by filter.js -->
+                    </select>
+                </div>
+                <div>
+                    <label for="type-filter" class="block text-sm font-medium text-gray-700 mb-1">Jenis Bencana:</label>
+                    <select id="type-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                        <option value="">Semua Jenis</option>
+                        <!-- Options will be populated by filter.js -->
+                    </select>
+                </div>
+                <div>
+                    <label for="search-input" class="block text-sm font-medium text-gray-700 mb-1">Cari (Keyword):</label>
+                    <input type="text" id="search-input" placeholder="Cari..." class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+            </div>
+
+            <!-- Export Buttons -->
+            <div class="flex justify-end space-x-3 mb-4">
+                <button id="export-json-btn" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out flex items-center">
+                    <i class="fas fa-file-export mr-2"></i>Ekspor JSON
+                </button>
+                <button id="export-csv-btn" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out flex items-center">
+                    <i class="fas fa-file-csv mr-2"></i>Ekspor CSV
+                </button>
+            </div>
+
+            <!-- Disaster Table -->
+            <div class="overflow-x-auto rounded-lg shadow-md border border-gray-200">
+                <table class="min-w-full divide-y divide-gray-200 data-table">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal</th>
+                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Waktu</th>
+                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jenis Bencana</th>
+                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kecamatan</th>
+                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Desa/Kelurahan</th>
+                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dampak</th>
+                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Korban Jiwa</th>
+                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kerugian (IDR)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="disaster-table-body" class="bg-white divide-y divide-gray-200">
+                        <!-- Data will be loaded here by filter.js -->
+                        <tr><td colspan="8" class="text-center py-4 text-gray-500">Memuat data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-6 px-6 mt-8 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 LAMBARSAFE. Dikelola oleh BPBD Lampung Barat.</p>
+            <div class="flex justify-center space-x-4 mt-3">
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript files -->
+    <script src="../js/filter.js"></script>
+</body>
+</html>

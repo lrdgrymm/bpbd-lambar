@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta Interaktif - LAMBARSAFE</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIINfQPDQwrULvGBDPZhG2+/jPOgjkBjzC7T/Mh9xNkFGzWPGYV0lXNN"
+        crossorigin=""/>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        #map {
+            height: 600px; /* Ketinggian peta */
+            width: 100%;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 px-6 flex flex-col md:flex-row justify-between items-center rounded-b-lg">
+        <div class="flex items-center mb-4 md:mb-0">
+            <img src="../assets/logo.png" alt="LAMBARSAFE Logo" class="h-12 w-12 mr-3 rounded-full">
+            <h1 class="text-3xl font-bold text-blue-700">LAMBARSAFE</h1>
+        </div>
+        <nav class="flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-6 text-lg">
+            <a href="../index.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Dashboard</a>
+            <a href="riwayat.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Riwayat Bencana</a>
+            <a href="klasifikasi.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Klasifikasi</a>
+            <a href="mitigasi.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Mitigasi</a>
+            <a href="peta.html" class="text-blue-600 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out bg-blue-100">Peta Interaktif</a>
+            <a href="tentang.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Berita/Edukasi</a>
+            <a href="kontak.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Kontak Darurat</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                <i class="fas fa-map-marked-alt mr-3"></i>Peta Interaktif Kejadian Bencana
+            </h2>
+            <p class="text-gray-700 mb-4">Lihat sebaran kejadian bencana di Lampung Barat pada peta interaktif. Anda dapat memfilter tampilan berdasarkan tahun atau jenis bencana.</p>
+
+            <!-- Filter Section for Map -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div>
+                    <label for="map-year-filter" class="block text-sm font-medium text-gray-700 mb-1">Tahun:</label>
+                    <select id="map-year-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                        <option value="">Semua Tahun</option>
+                        <!-- Options will be populated by JS -->
+                    </select>
+                </div>
+                <div>
+                    <label for="map-type-filter" class="block text-sm font-medium text-gray-700 mb-1">Jenis Bencana:</label>
+                    <select id="map-type-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                        <option value="">Semua Jenis</option>
+                        <!-- Options will be populated by JS -->
+                    </select>
+                </div>
+                <div class="flex items-end">
+                    <button id="reset-map-filter" class="w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out flex items-center justify-center">
+                        <i class="fas fa-sync-alt mr-2"></i>Reset Filter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Map Container -->
+            <div id="map"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-6 px-6 mt-8 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 LAMBARSAFE. Dikelola oleh BPBD Lampung Barat.</p>
+            <div class="flex justify-center space-x-4 mt-3">
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20n6fxyVRP3WP4FzJt+fvzFfFVzFVFzmY/yC8yD4yD4="
+        crossorigin=""></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Inisialisasi peta Leaflet
+            // Koordinat pusat Lampung Barat (perkiraan)
+            const map = L.map('map').setView([-5.07, 104.05], 10); // Latitude, Longitude, Zoom
+
+            // Tambahkan tile layer dari OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            let disasterMarkers = L.featureGroup().addTo(map); // Layer grup untuk marker bencana
+            let allDisastersData = []; // Untuk menyimpan semua data asli
+
+            const mapYearFilter = document.getElementById('map-year-filter');
+            const mapTypeFilter = document.getElementById('map-type-filter');
+            const resetMapFilterBtn = document.getElementById('reset-map-filter');
+
+            // Fungsi untuk memuat data CSV
+            async function loadDisastersDataForMap() {
+                try {
+                    const baseUrl = window.location.href;
+                    const relativePath = '../data/disasters.csv';
+                    const fullUrl = new URL(relativePath, baseUrl).href;
+
+                    console.log('Attempting to fetch disaster data for map from URL:', fullUrl);
+
+                    const response = await fetch(fullUrl);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status} - ${response.statusText || 'Unknown Error'}`);
+                    }
+                    const csvText = await response.text();
+                    allDisastersData = parseCSV(csvText);
+                    populateMapFilters(allDisastersData);
+                    displayDisastersOnMap(allDisastersData);
+                } catch (error) {
+                    console.error('Error loading disasters data for map:', error);
+                    // Tampilkan pesan error di UI peta jika perlu
+                    const mapContainer = document.getElementById('map');
+                    if (mapContainer) {
+                        mapContainer.innerHTML = `
+                            <div class="bg-red-50 p-4 rounded-md border border-red-200 text-red-800 text-center" style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                                <p class="font-bold">Gagal memuat data peta bencana.</p>
+                                <p class="text-sm text-gray-700">Detail: ${error.message}</p>
+                                <p class="text-sm text-gray-700 mt-2">Pastikan file 'disasters.csv' ada di folder 'data/' dan Anda menjalankan website melalui server lokal.</p>
+                            </div>
+                        `;
+                    }
+                }
+            }
+
+            // Fungsi sederhana untuk parsing CSV (sama seperti di filter.js)
+            function parseCSV(csv) {
+                const lines = csv.split('\n').filter(line => line.trim() !== '');
+                if (lines.length === 0) return [];
+
+                const headers = lines[0].split(',').map(h => h.trim());
+                return lines.slice(1).map(line => {
+                    const values = line.split(',').map(v => v.trim());
+                    let row = {};
+                    headers.forEach((header, i) => {
+                        row[header] = values[i];
+                    });
+                    return row;
+                });
+            }
+
+            // Fungsi untuk mengisi opsi filter peta
+            function populateMapFilters(data) {
+                const years = new Set();
+                const types = new Set();
+
+                data.forEach(item => {
+                    if (item['Tanggal']) {
+                        const year = new Date(item['Tanggal']).getFullYear();
+                        if (!isNaN(year)) years.add(year);
+                    }
+                    if (item['Jenis Bencana']) types.add(item['Jenis Bencana']);
+                });
+
+                mapYearFilter.innerHTML = '<option value="">Semua Tahun</option>';
+                Array.from(years).sort().forEach(year => {
+                    mapYearFilter.innerHTML += `<option value="${year}">${year}</option>`;
+                });
+
+                mapTypeFilter.innerHTML = '<option value="">Semua Jenis</option>';
+                Array.from(types).sort().forEach(type => {
+                    mapTypeFilter.innerHTML += `<option value="${type}">${type}</option>`;
+                });
+            }
+
+            // Fungsi untuk menampilkan bencana di peta
+            function displayDisastersOnMap(data) {
+                disasterMarkers.clearLayers(); // Hapus marker sebelumnya
+
+                data.forEach(item => {
+                    // Asumsi ada kolom 'Latitude' dan 'Longitude' di CSV untuk data lokasi yang lebih akurat
+                    // Jika tidak ada, kita perlu mengira-ngira berdasarkan Kecamatan/Desa atau menggunakan geocoding API
+                    // Untuk contoh ini, kita akan menggunakan koordinat dummy atau mengabaikan jika tidak ada
+                    let lat = parseFloat(item['Latitude']); // Anda perlu menambahkan kolom ini ke CSV
+                    let lon = parseFloat(item['Longitude']); // Anda perlu menambahkan kolom ini ke CSV
+
+                    // Contoh dummy koordinat jika tidak ada Latitude/Longitude di CSV
+                    // Ini hanya untuk demonstrasi, Anda perlu data koordinat yang sebenarnya
+                    const dummyCoordinates = {
+                        'Sekincau': [-5.00, 104.20],
+                        'Suoh': [-5.15, 104.00],
+                        'Balik Bukit': [-5.08, 104.05],
+                        'Kebun Tebu': [-5.05, 104.10],
+                        'Pagar Dewa': [-5.10, 104.15],
+                        'Batu Brak': [-5.12, 104.08],
+                        'Belalau': [-5.03, 104.02],
+                        'Sumber Jaya': [-5.18, 104.25],
+                        'Way Tenong': [-5.06, 104.18],
+                        'Gedung Surian': [-5.20, 104.13],
+                        'Lumbok Seminung': [-5.22, 104.07],
+                        'Pesisir Barat': [-5.25, 103.95], // Asumsi ini masih di area Lambar atau dekatnya
+                        // Tambahkan lebih banyak kecamatan/desa dengan koordinat perkiraan
+                    };
+
+                    if (isNaN(lat) || isNaN(lon)) {
+                        // Coba dapatkan koordinat dari dummy data berdasarkan kecamatan
+                        const kecamatan = item['Kecamatan'];
+                        if (dummyCoordinates[kecamatan]) {
+                            [lat, lon] = dummyCoordinates[kecamatan];
+                        } else {
+                            // Jika masih tidak ada, gunakan koordinat pusat Lambar atau abaikan
+                            console.warn(`Koordinat tidak ditemukan untuk ${item['Kecamatan']}. Menggunakan koordinat default.`);
+                            lat = -5.07 + (Math.random() - 0.5) * 0.1; // Sedikit random di sekitar pusat
+                            lon = 104.05 + (Math.random() - 0.5) * 0.1;
+                        }
+                    }
+
+                    if (!isNaN(lat) && !isNaN(lon)) {
+                        const marker = L.marker([lat, lon]).addTo(disasterMarkers);
+                        marker.bindPopup(`
+                            <strong>${item['Jenis Bencana']}</strong><br>
+                            Tanggal: ${item['Tanggal']}<br>
+                            Waktu: ${item['Waktu']}<br>
+                            Kecamatan: ${item['Kecamatan']}<br>
+                            Desa: ${item['Desa/Kelurahan']}<br>
+                            Dampak: ${item['Dampak']}<br>
+                            Korban Jiwa: ${item['Korban Jiwa']}<br>
+                            Kerugian: ${item['Kerugian (IDR)']}<br>
+                        `);
+                    }
+                });
+            }
+
+            // Fungsi untuk menerapkan filter peta
+            function applyMapFilters() {
+                const selectedYear = mapYearFilter.value;
+                const selectedType = mapTypeFilter.value;
+
+                let filteredData = allDisastersData.filter(item => {
+                    const itemYear = item['Tanggal'] ? new Date(item['Tanggal']).getFullYear().toString() : '';
+                    const itemType = item['Jenis Bencana'] || '';
+
+                    const matchesYear = selectedYear === '' || itemYear === selectedYear;
+                    const matchesType = selectedType === '' || itemType === selectedType;
+
+                    return matchesYear && matchesType;
+                });
+
+                displayDisastersOnMap(filteredData);
+            }
+
+            // Event Listeners untuk filter peta
+            mapYearFilter.addEventListener('change', applyMapFilters);
+            mapTypeFilter.addEventListener('change', applyMapFilters);
+            resetMapFilterBtn.addEventListener('click', () => {
+                mapYearFilter.value = '';
+                mapTypeFilter.value = '';
+                applyMapFilters();
+            });
+
+            // Muat data saat halaman peta dimuat
+            loadDisastersDataForMap();
+        });
+    </script>
+</body>
+</html>

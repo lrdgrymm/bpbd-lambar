@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Darurat - LAMBARSAFE</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 px-6 flex flex-col md:flex-row justify-between items-center rounded-b-lg">
+        <div class="flex items-center mb-4 md:mb-0">
+            <img src="../assets/logo.png" alt="LAMBARSAFE Logo" class="h-12 w-12 mr-3 rounded-full">
+            <h1 class="text-3xl font-bold text-blue-700">LAMBARSAFE</h1>
+        </div>
+        <nav class="flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-6 text-lg">
+            <a href="../index.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Dashboard</a>
+            <a href="riwayat.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Riwayat Bencana</a>
+            <a href="klasifikasi.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Klasifikasi</a>
+            <a href="mitigasi.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Mitigasi</a>
+            <a href="peta.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Peta Interaktif</a>
+            <a href="tentang.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Berita/Edukasi</a>
+            <a href="kontak.html" class="text-blue-600 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out bg-blue-100">Kontak Darurat</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i>Kontak Darurat & Informasi Penting
+            </h2>
+            <p class="text-gray-700 mb-6">Dalam situasi darurat, setiap detik sangat berharga. Simpan dan hubungi nomor-nomor penting berikut untuk mendapatkan bantuan segera.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Posko Bencana -->
+                <div class="bg-blue-50 p-6 rounded-lg shadow-sm border border-blue-200">
+                    <h3 class="text-xl font-bold text-blue-800 mb-3 flex items-center">
+                        <i class="fas fa-building mr-3"></i>Posko BPBD Lampung Barat
+                    </h3>
+                    <p class="text-gray-700 mb-2"><strong>Alamat:</strong> Jl. Raya Liwa - Krui No.XX, Liwa, Lampung Barat</p>
+                    <p class="text-gray-700 mb-2"><strong>Telepon:</strong> (0728) 77XXXXX (Nomor BPBD Provinsi Lampung, belum ada nomor spesifik Lambar yang ditemukan publik)</p>
+                    <p class="text-gray-700 mb-2"><strong>Email:</strong> bpbd.lambar@email.com (Email Dummy)</p>
+                    <p class="text-gray-700"><strong>Jam Operasional:</strong> 24 Jam (untuk keadaan darurat)</p>
+                    <a href="https://maps.google.com/?q=-5.07,104.05" target="_blank" class="inline-block mt-4 text-blue-600 hover:underline flex items-center">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Lihat di Peta
+                    </a>
+                </div>
+
+                <!-- Nomor Darurat Umum -->
+                <div class="bg-red-50 p-6 rounded-lg shadow-sm border border-red-200">
+                    <h3 class="text-xl font-bold text-red-800 mb-3 flex items-center">
+                        <i class="fas fa-exclamation-circle mr-3"></i>Nomor Darurat Umum
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-phone-volume mr-2 text-red-600"></i><strong>Panggilan Darurat (Umum/Terintegrasi):</strong> 112 (Call Center Lampung Barat)</li>
+                        <li><i class="fas fa-fire mr-2 text-red-600"></i><strong>Pemadam Kebakaran:</strong> 112 (Melalui Call Center 112 Lambar) atau (0721) 252741 (Damkar Bandar Lampung, perlu verifikasi untuk Lambar)</li>
+                        <li><i class="fas fa-ambulance mr-2 text-red-600"></i><strong>Ambulans/Medis:</strong> 112 (Melalui Call Center 112 Lambar)</li>
+                        <li><i class="fas fa-hospital mr-2 text-red-600"></i><strong>Rumah Sakit Umum Daerah:</strong> (0728) XXXXX (Nomor Dummy, belum ditemukan spesifik)</li>
+                        <li><i class="fas fa-user-shield mr-2 text-red-600"></i><strong>Kepolisian:</strong> 110 (Panggilan Darurat Nasional) / (0721) 21148 (Polres Lampung Barat - kode area 0721)</li>
+                        <li><i class="fas fa-hands-helping mr-2 text-red-600"></i><strong>SAR Nasional (Basarnas):</strong> 115 / 082180048006 (WhatsApp Kantor SAR Lampung)</li>
+                    </ul>
+                </div>
+
+                <!-- Instansi Terkait -->
+                <div class="bg-green-50 p-6 rounded-lg shadow-sm border border-green-200 md:col-span-2">
+                    <h3 class="text-xl font-bold text-green-800 mb-3 flex items-center">
+                        <i class="fas fa-building mr-3"></i>Instansi Terkait
+                    </h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-2 text-gray-700">
+                        <li><i class="fas fa-phone mr-2 text-green-600"></i><strong>Dinas Sosial:</strong> +62 813 7328 5533 (Call Center Dinas Sosial Provinsi Lampung)</li>
+                        <li><i class="fas fa-phone mr-2 text-green-600"></i><strong>Dinas Kesehatan:</strong> (0728) 21118 (Dinas Kesehatan Kabupaten Lampung Barat)</li>
+                        <li><i class="fas fa-phone mr-2 text-green-600"></i><strong>Dinas Pekerjaan Umum:</strong> (0728) 21401 (Dinas PUPR Lampung Barat)</li>
+                        <li><i class="fas fa-phone mr-2 text-green-600"></i><strong>PLN:</strong> 123 (Call Center Nasional) / 0811-1200-2123 (WhatsApp ICONNET PLN)</li>
+                        <li><i class="fas fa-phone mr-2 text-green-600"></i><strong>PDAM Limau Kunci:</strong> (0728) 21369 / 0823-7571-1101 (WA Center Pusat)</li>
+                        <li><i class="fas fa-phone mr-2 text-green-600"></i><strong>BMKG (Pusat):</strong> (021) 6546315</li>
+                    </ul>
+                    <p class="text-sm text-gray-600 mt-4"><em>Catatan: Nomor-nomor ini telah diperbarui berdasarkan informasi publik. Selalu verifikasi nomor darurat lokal terbaru jika memungkinkan. Beberapa layanan mungkin terintegrasi melalui Call Center 112.</em></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-6 px-6 mt-8 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 LAMBARSAFE. Dikelola oleh BPBD Lampung Barat.</p>
+            <div class="flex justify-center space-x-4 mt-3">
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

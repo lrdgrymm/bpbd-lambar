@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita & Edukasi - LAMBARSAFE</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 px-6 flex flex-col md:flex-row justify-between items-center rounded-b-lg">
+        <div class="flex items-center mb-4 md:mb-0">
+            <img src="../assets/logo.png" alt="LAMBARSAFE Logo" class="h-12 w-12 mr-3 rounded-full">
+            <h1 class="text-3xl font-bold text-blue-700">LAMBARSAFE</h1>
+        </div>
+        <nav class="flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-6 text-lg">
+            <a href="../index.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Dashboard</a>
+            <a href="riwayat.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Riwayat Bencana</a>
+            <a href="klasifikasi.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Klasifikasi</a>
+            <a href="mitigasi.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Mitigasi</a>
+            <a href="peta.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Peta Interaktif</a>
+            <a href="tentang.html" class="text-blue-600 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out bg-blue-100">Berita/Edukasi</a>
+            <a href="kontak.html" class="text-gray-700 hover:text-blue-800 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Kontak Darurat</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6">
+        <section class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                <i class="fas fa-newspaper mr-3"></i>Berita dan Edukasi Kebencanaan
+            </h2>
+            <p class="text-gray-700 mb-6">Dapatkan informasi terbaru dan artikel edukasi seputar kebencanaan untuk meningkatkan kesadaran dan kesiapsiagaan Anda.</p>
+
+            <div class="space-y-8">
+                <!-- Artikel 1: Kesiapsiagaan Gempa -->
+                <article id="gempa" class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                        <i class="fas fa-house-damage mr-3 text-yellow-600"></i>Pentingnya Kesiapsiagaan Bencana Gempa Bumi
+                    </h3>
+                    <p class="text-gray-700 mb-4">Gempa bumi adalah salah satu bencana alam yang paling tidak terduga. Oleh karena itu, kesiapsiagaan menjadi kunci untuk mengurangi risiko korban jiwa dan kerugian harta benda. Memahami langkah-langkah yang tepat sebelum, saat, dan setelah gempa dapat menyelamatkan hidup Anda dan keluarga.</p>
+                    <h4 class="font-semibold text-gray-800 mb-2">Langkah-langkah Kesiapsiagaan:</h4>
+                    <ul class="list-disc list-inside text-gray-700 mb-4">
+                        <li>Pastikan struktur bangunan rumah Anda tahan gempa atau setidaknya memiliki area aman (seperti di bawah meja kokoh).</li>
+                        <li>Siapkan tas siaga bencana yang berisi makanan ringan, air minum, obat-obatan pribadi, senter, radio, peluit, dan dokumen penting.</li>
+                        <li>Latih keluarga Anda untuk melakukan 'Drop, Cover, and Hold On' (merunduk, berlindung, dan berpegangan) saat gempa terjadi.</li>
+                        <li>Identifikasi jalur evakuasi dan titik kumpul yang aman di luar rumah.</li>
+                    </ul>
+                    <p class="text-gray-700 italic text-sm">Sumber: BPBD Lampung Barat, BNPB</p>
+                </article>
+
+                <!-- Artikel 2: Mitigasi Banjir -->
+                <article id="banjir" class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                        <i class="fas fa-water mr-3 text-blue-600"></i>Mitigasi Banjir di Musim Hujan: Apa yang Harus Dilakukan?
+                    </h3>
+                    <p class="text-gray-700 mb-4">Lampung Barat, dengan beberapa wilayah dataran rendah dan dekat sungai, rentan terhadap banjir saat musim hujan tiba. Mitigasi bukan hanya tugas pemerintah, tetapi juga tanggung jawab kita bersama sebagai masyarakat.</p>
+                    <h4 class="font-semibold text-gray-800 mb-2">Tips Pencegahan Banjir:</h4>
+                    <ul class="list-disc list-inside text-gray-700 mb-4">
+                        <li>Bersihkan saluran air, selokan, dan gorong-gorong secara rutin dari sampah dan endapan lumpur.</li>
+                        <li>Jangan membuang sampah sembarangan ke sungai atau saluran air.</li>
+                        <li>Tinggikan pondasi rumah jika memungkinkan, terutama di area yang sering tergenang.</li>
+                        <li>Siapkan karung pasir atau penghalang air lainnya jika rumah Anda berada di dataran rendah.</li>
+                        <li>Pantau informasi prakiraan cuaca dari BMKG dan peringatan dini banjir.</li>
+                    </ul>
+                    <p class="text-gray-700 italic text-sm">Sumber: BPBD Lampung Barat</p>
+                </article>
+
+                <!-- Artikel 3: Peran Komunitas -->
+                <article id="komunitas" class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                        <i class="fas fa-users mr-3 text-green-600"></i>Peran Komunitas dalam Penanggulangan Bencana
+                    </h3>
+                    <p class="text-gray-700 mb-4">Kekuatan terbesar dalam menghadapi bencana adalah solidaritas dan kesiapsiagaan komunitas. Ketika setiap individu dan keluarga siap, maka komunitas secara keseluruhan akan lebih tangguh.</p>
+                    <h4 class="font-semibold text-gray-800 mb-2">Bagaimana Komunitas Berperan:</h4>
+                    <ul class="list-disc list-inside text-gray-700 mb-4">
+                        <li>Bentuk atau aktif dalam kelompok siaga bencana di tingkat RT/RW.</li>
+                        <li>Lakukan simulasi evakuasi bersama secara berkala.</li>
+                        <li>Saling berbagi informasi dan pengetahuan tentang kebencanaan.</li>
+                        <li>Bantu tetangga yang membutuhkan, terutama lansia, anak-anak, dan penyandang disabilitas.</li>
+                        <li>Berpartisipasi dalam kegiatan bersih-bersih lingkungan untuk mencegah bencana.</li>
+                    </ul>
+                    <p class="text-gray-700 italic text-sm">Sumber: BNPB, Relawan Lokal</p>
+                </article>
+
+                <!-- Artikel 4: Kesiapsiagaan Menghadapi Kebakaran Hutan -->
+                <article id="kebakaran-hutan" class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                        <i class="fas fa-fire-alt mr-3 text-red-600"></i>Kesiapsiagaan Menghadapi Kebakaran Hutan dan Lahan
+                    </h3>
+                    <p class="text-gray-700 mb-4">Kebakaran hutan dan lahan (Karhutla) dapat menyebabkan dampak yang luas, mulai dari kerusakan ekosistem hingga masalah kesehatan. Penting untuk mengetahui cara mencegah dan menanggulangi Karhutla.</p>
+                    <h4 class="font-semibold text-gray-800 mb-2">Langkah Pencegahan:</h4>
+                    <ul class="list-disc list-inside text-gray-700 mb-4">
+                        <li>Jangan membakar sampah atau lahan untuk membersihkan area.</li>
+                        <li>Pastikan api unggun dipadamkan sepenuhnya sebelum meninggalkan lokasi.</li>
+                        <li>Laporkan segera jika melihat tanda-tanda kebakaran hutan.</li>
+                        <li>Tingkatkan kesadaran akan bahaya puntung rokok yang dibuang sembarangan.</li>
+                    </ul>
+                    <p class="text-gray-700 italic text-sm">Sumber: Kementerian Lingkungan Hidup dan Kehutanan</p>
+                </article>
+
+                <!-- Artikel 5: Pentingnya Jalur Evakuasi -->
+                <article id="jalur-evakuasi" class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                        <i class="fas fa-route mr-3 text-purple-600"></i>Pentingnya Memahami Jalur Evakuasi dan Titik Kumpul
+                    </h3>
+                    <p class="text-gray-700 mb-4">Dalam situasi darurat, kebingungan dapat menghambat proses evakuasi. Mengetahui jalur evakuasi dan titik kumpul yang aman adalah langkah krusial dalam kesiapsiagaan bencana.</p>
+                    <h4 class="font-semibold text-gray-800 mb-2">Tips Memahami Jalur Evakuasi:</h4>
+                    <ul class="list-disc list-inside text-gray-700 mb-4">
+                        <li>Identifikasi jalur evakuasi terdekat dari rumah, sekolah, atau tempat kerja Anda.</li>
+                        <li>Kenali titik kumpul yang aman dan terbuka, jauh dari potensi bahaya.</li>
+                        <li>Lakukan simulasi evakuasi secara berkala bersama keluarga atau komunitas.</li>
+                        <li>Pastikan jalur evakuasi tidak terhalang oleh benda apapun.</li>
+                    </ul>
+                    <p class="text-gray-700 italic text-sm">Sumber: BNPB</p>
+                </article>
+
+                <!-- Artikel 6: Pertolongan Pertama Saat Bencana -->
+                <article id="pertolongan-pertama" class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                        <i class="fas fa-first-aid mr-3 text-orange-600"></i>Dasar-dasar Pertolongan Pertama Saat Bencana
+                    </h3>
+                    <p class="text-gray-700 mb-4">Kecelakaan atau cedera dapat terjadi kapan saja saat bencana. Memiliki pengetahuan dasar pertolongan pertama dapat sangat membantu diri sendiri dan orang lain sebelum bantuan medis tiba.</p>
+                    <h4 class="font-semibold text-gray-800 mb-2">Yang Perlu Diketahui:</h4>
+                    <ul class="list-disc list-inside text-gray-700 mb-4">
+                        <li>Pelajari teknik dasar P3K (Pertolongan Pertama Pada Kecelakaan) seperti menghentikan pendarahan, menangani luka bakar, atau mengatasi syok.</li>
+                        <li>Siapkan kotak P3K di rumah, kendaraan, dan tas siaga bencana.</li>
+                        <li>Ikuti pelatihan P3K dari lembaga yang terpercaya (misalnya PMI atau Palang Merah Indonesia).</li>
+                        <li>Prioritaskan keselamatan diri sebelum menolong orang lain.</li>
+                    </ul>
+                    <p class="text-gray-700 italic text-sm">Sumber: PMI, Palang Merah Indonesia</p>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-6 px-6 mt-8 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 LAMBARSAFE. Dikelola oleh BPBD Lampung Barat.</p>
+            <div class="flex justify-center space-x-4 mt-3">
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
