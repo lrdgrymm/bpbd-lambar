@@ -1,0 +1,87 @@
+/* =========================================== */
+/* ===    DESAIN FINAL - PANEL ADMIN BPBD    === */
+/* =========================================== */
+
+:root {
+    --admin-bg: #f4f6f9;
+    --sidebar-bg: #2c3e50;
+    --sidebar-link-text: #ecf0f1; /* Warna teks link sidebar */
+    --sidebar-hover-bg: #34495e;
+    --primary: #3498db;
+    --danger: #e74c3c;
+    --success: #2ecc71;
+    --warning: #f39c12;
+    --surface: #ffffff;
+    --text-dark: #2c3e50;
+    --border-color: #dee2e6;
+}
+
+body { font-family: 'Poppins', sans-serif; background-color: var(--admin-bg); margin: 0; }
+a { text-decoration: none; color: inherit; }
+
+/* Wrapper & Layout Utama */
+.admin-wrapper { display: flex; }
+.admin-sidebar { width: 250px; background-color: var(--sidebar-bg); color: var(--sidebar-link-text); min-height: 100vh; position: fixed; top: 0; left: 0; padding-top: 1rem; }
+.admin-main-content { margin-left: 250px; width: calc(100% - 250px); }
+.admin-header { background-color: var(--surface-color); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); }
+.admin-header h2 { font-size: 1.5rem; color: var(--text-dark); margin: 0; }
+.admin-user-info { display: flex; align-items: center; gap: 1rem; }
+.admin-content-area { padding: 2rem; }
+
+/* Header Sidebar (BARU - Logo di Atas) */
+.sidebar-header {
+    display: flex;
+    flex-direction: column; /* Membuat item berbaris ke bawah */
+    align-items: center;     /* Posisi di tengah secara horizontal */
+    gap: 10px;               /* Jarak antara logo dan teks */
+    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #4a627a;
+    text-align: center;
+}
+.sidebar-header a {
+    display: inline-block;
+}
+.sidebar-header img {
+    height: 60px; /* Ukuran logo bisa disesuaikan */
+    width: auto;
+    margin-bottom: 0.5rem;
+}
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--sidebar-link-text);
+}
+
+/* Menu Sidebar (Warna Link diperbaiki) */
+.admin-sidebar ul { list-style: none; padding: 0 1rem; }
+.admin-sidebar ul a {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--sidebar-link-text); /* Warna teks putih */
+    padding: 0.8rem 1rem; border-radius: 5px; margin-bottom: 0.5rem;
+    transition: background-color 0.2s;
+}
+.admin-sidebar ul a:hover, .admin-sidebar ul a.active {
+    background-color: var(--sidebar-hover);
+    color: white;
+}
+
+/* Komponen Umum di Konten Admin */
+.card {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.table { width: 100%; border-collapse: collapse; background: var(--surface-color); }
+.table th, .table td { padding: 1rem; border-bottom: 1px solid var(--border-color); text-align: left; vertical-align: middle; }
+.table thead { background-color: #f8f9fa; font-weight: 600; }
+.btn { padding: 0.5rem 1rem; border-radius: 5px; color: white !important; border: none; cursor: pointer; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-primary { background-color: var(--primary); }
+.btn-warning { background-color: var(--warning); }
+.btn-danger { background-color: var(--danger); }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-family: 'Poppins', sans-serif; }
+.alert-success { background-color: #d4edda; color: #155724; padding: 1rem; border-radius: 5px; margin-bottom: 1rem; }
+.alert-danger { background-color: #f8d7da; color: #721c24; padding: 1rem; border-radius: 5px; margin-bottom: 1rem; }
